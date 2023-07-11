@@ -6,13 +6,13 @@
     border: 1px solid grey;
     padding: 15px;
     margin-bottom: 15px;
-    background-color: #ccc;
+    background-color: $color-lists-item-bg;
     border-radius: 8px;
-    box-shadow: 4px 4px 12px 4px white inset;
+    // box-shadow: 4px 4px 12px 4px white inset;
     cursor: pointer;
 
     &--active {
-      background-color: gold;
+      background-color: $color-lists-item-active-bg;
     }
 
     &:last-child {
@@ -21,6 +21,10 @@
 
     &__loading {
       margin-right: 4px;
+    }
+
+    &__voice {
+      color: #eee;
     }
 
     &__label {

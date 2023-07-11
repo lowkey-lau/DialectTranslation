@@ -2,7 +2,11 @@
   <div class="listBox">
     <div class="listBox-item" :class="{ 'listBox-item--active': item.isPlaying }" v-for="(item, index) in filterLists" @click="playSound(index)">
       <LoadingBar class="listBox-item__loading" :active="item.isPlaying" />
-      <div class="listBox-item__label">{{ item.label }}</div>
+
+      <div class="listBox-item__info">
+        <div class="listBox-item__voice">{{ item.voice }}</div>
+        <div class="listBox-item__label">{{ item.label }}</div>
+      </div>
     </div>
   </div>
 </template>

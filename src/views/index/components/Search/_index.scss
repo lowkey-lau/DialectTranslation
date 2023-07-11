@@ -1,5 +1,8 @@
 .search {
   padding: 15px;
-  background-color: orange;
-  color: red;
+  background-color: $color-search-bg;
+
+  position: sticky;
+  top: 0;
+  // width: 100%;
 }

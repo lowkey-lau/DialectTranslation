@@ -7,9 +7,13 @@
 </template>
 
 <script setup>
-import { onMounted, reactive } from "vue";
+import { onMounted, reactive, watch } from "vue";
 import { Howl, Howler } from "howler";
 import listsData from "@/assets/json/lists.js";
+
+const $props = defineProps({
+  searchVal: String,
+});
 
 const state = reactive({
   data: [],
@@ -40,6 +44,13 @@ const playSound = (e) => {
     sound.pause();
   }
 };
+
+watch(
+  () => $props.searchVal,
+  (e1, _e1) => {
+    console.log(e1);
+  }
+);
 
 onMounted(() => {
   listsData.forEach((e) => {

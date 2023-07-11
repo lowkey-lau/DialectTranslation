@@ -1,8 +1,8 @@
 <template>
   <div>
-    <Search />
+    <Search @setSearchVal="setSearchVal" />
 
-    <Lists />
+    <Lists :searchVal="state.searchVal" />
   </div>
 </template>
 
@@ -14,7 +14,13 @@ import { reactive } from "vue";
 
 const state = reactive({
   name: "lowkey11111111",
+  searchVal: "",
 });
+
+const setSearchVal = (e) => {
+  console.log("12312 ->", e);
+  state.searchVal = e;
+};
 </script>
 
 <style lang="scss" scoped>

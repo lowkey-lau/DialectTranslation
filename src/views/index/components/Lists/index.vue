@@ -1,13 +1,13 @@
 <template>
   <div class="listBox">
-    <div class="listBox-item" :class="{ 'listBox-item--active': item.isPlaying }" v-for="(item, index) in state.data">
+    <div class="listBox-item" :class="{ 'listBox-item--active': item.isPlaying }" v-for="(item, index) in filterLists">
       <div @click="playSound(index)">{{ item.label }}</div>
     </div>
   </div>
 </template>
 
 <script setup>
-import { onMounted, reactive, watch } from "vue";
+import { computed, onMounted, reactive, watch } from "vue";
 import { Howl, Howler } from "howler";
 import listsData from "@/assets/json/lists.js";
 
@@ -44,6 +44,10 @@ const playSound = (e) => {
     sound.pause();
   }
 };
+
+const filterLists = computed(() => {
+  return listsData.filter((item) => item.label.indexOf($props.searchVal) !== -1);
+});
 
 watch(
   () => $props.searchVal,

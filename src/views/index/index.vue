@@ -1,7 +1,6 @@
 <template>
   <div>
     <Search @setSearchVal="setSearchVal" />
-
     <Lists :searchVal="state.searchVal" />
   </div>
 </template>
@@ -18,7 +17,6 @@ const state = reactive({
 });
 
 const setSearchVal = (e) => {
-  console.log("12312 ->", e);
   state.searchVal = e;
 };
 </script>

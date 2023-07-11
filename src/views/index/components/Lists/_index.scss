@@ -1,13 +1,15 @@
 .listBox {
   padding: 15px;
-  background-color: skyblue;
 
   &-item {
+    @include flexLeft;
     border: 1px solid grey;
     padding: 15px;
     margin-bottom: 15px;
-    background-color: navy;
-    color: red;
+    background-color: #ccc;
+    border-radius: 8px;
+    box-shadow: 4px 4px 12px 4px white inset;
+    cursor: pointer;
 
     &--active {
       background-color: gold;
@@ -15,6 +17,14 @@
 
     &:last-child {
       margin-bottom: 0;
+    }
+
+    &__loading {
+      margin-right: 4px;
+    }
+
+    &__label {
+      color: black;
     }
   }
 }

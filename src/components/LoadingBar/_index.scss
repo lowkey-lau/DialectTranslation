@@ -1,0 +1,34 @@
+.loadingBox {
+  @include flexLeft;
+  height: 20px;
+
+  &-line {
+    width: 3px;
+    height: 100%;
+    background-color: orange;
+    margin-right: 2px;
+
+    .loadingBox.active & {
+      animation: bar1 1s infinite backwards;
+
+      @for $i from 1 through 5 {
+        &:nth-child(#{$i}) {
+          animation-delay: #{$i * 0.1}s;
+        }
+      }
+    }
+    // &:nth-child()
+  }
+}
+
+@keyframes bar1 {
+  0% {
+    transform: scaleY(1) translateZ(0);
+  }
+  50% {
+    transform: scaleY(0.6) translateZ(0);
+  }
+  to {
+    transform: scale(1) translateZ(0);
+  }
+}

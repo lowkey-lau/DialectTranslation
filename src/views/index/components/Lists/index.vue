@@ -1,12 +1,15 @@
 <template>
   <div class="listBox">
-    <div class="listBox-item" :class="{ 'listBox-item--active': item.isPlaying }" v-for="(item, index) in filterLists">
-      <div @click="playSound(index)">{{ item.label }}</div>
+    <div class="listBox-item" :class="{ 'listBox-item--active': item.isPlaying }" v-for="(item, index) in filterLists" @click="playSound(index)">
+      <LoadingBar class="listBox-item__loading" :active="item.isPlaying" />
+      <div class="listBox-item__label">{{ item.label }}</div>
     </div>
   </div>
 </template>
 
 <script setup>
+import LoadingBar from "@/components/LoadingBar/index.vue";
+
 import { computed, onMounted, reactive, watch } from "vue";
 import { Howl, Howler } from "howler";
 import listsData from "@/assets/json/lists.js";
@@ -46,7 +49,7 @@ const playSound = (e) => {
 };
 
 const filterLists = computed(() => {
-  return listsData.filter((item) => item.label.indexOf($props.searchVal) !== -1);
+  return state.data.filter((item) => item.label.indexOf($props.searchVal) !== -1);
 });
 
 watch(

@@ -1,0 +1,207 @@
+// 快捷布局
+@mixin flexCenter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin flexLeft {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+@mixin flexRight {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+@mixin flexBetween {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@mixin flexCenterColumn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+@mixin flexLeftColumn {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: column;
+}
+
+@mixin flexRightColumn {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  flex-direction: column;
+}
+
+@mixin justifiedLayout {
+  text-align: center;
+  &:first-child {
+    text-align: left;
+  }
+  &:last-child {
+    text-align: right;
+  }
+}
+
+/* 省略号 */
+@mixin initOneLine {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@mixin initMoreLine($val) {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: $val;
+  -webkit-box-orient: vertical;
+}
+
+@mixin fullImage {
+  font-size: 0;
+  img {
+    max-width: 100%;
+    width: 100%;
+  }
+}
+
+@mixin fullHeightImage {
+  font-size: 0;
+
+  img {
+    height: 100%;
+    width: auto;
+  }
+}
+
+@mixin calcMargin($val) {
+  width: calc(100% + ((2 * #{$val}) * 1px));
+  margin-left: calc((-1 * #{$val}) * 1px);
+}
+
+@mixin clearLastMargin {
+  &:last-child {
+    margin: 0;
+  }
+}
+
+@mixin clearLastBorder {
+  &:last-child {
+    border-bottom: 0;
+  }
+}
+
+/* 阴影 */
+@mixin initShadow($val: 10, $color: rgba(147, 147, 147, 0.1)) {
+  box-shadow: 0px 0px ($val * 1px) 0px $color;
+  -webkit-box-shadow: 0px 0px ($val * 1px) 0px $color;
+  -moz-box-shadow: 0px 0px ($val * 1px) 0px $color;
+}
+
+/* 动画 */
+@mixin initTransition($val) {
+  transition: ($val * 1s) all;
+}
+
+// global
+
+@mixin large_wrapper() {
+  max-width: 1700px;
+  width: 100%;
+  padding: 0 30px;
+}
+
+@mixin small_wrapper() {
+  max-width: 1500px;
+  width: 100%;
+  padding: 0 30px;
+}
+
+// 字体大小
+
+@mixin fontSize_title() {
+  font-size: 72px;
+  font-weight: bold;
+  color: #ffffff;
+
+  @include mediaCss(1280) {
+    font-size: 48px;
+  }
+
+  @include mediaCss(480) {
+    font-size: 36px;
+  }
+}
+
+@mixin fontSize_subTitle() {
+  font-size: 48px;
+  font-weight: bold;
+  color: #ffffff;
+
+  @include mediaCss(480) {
+    font-size: 36px;
+  }
+}
+
+@mixin fontSize_desc() {
+  font-size: 22px;
+  font-weight: 400;
+  color: #a2a2a2;
+  line-height: 36px;
+
+  @include mediaCss(480) {
+    font-size: 18px;
+  }
+
+  p {
+    margin: 0;
+    margin-bottom: 30px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+@mixin btn_style() {
+  @include initTransition(0.4);
+  @include flexCenter;
+  padding: 15px 45px;
+  margin-right: 30px;
+  background: #000000;
+  border-radius: 40px;
+  font-size: 34px;
+  font-weight: 500;
+  color: #ffffff;
+  cursor: pointer;
+
+  &:last-child {
+    margin-right: 0;
+  }
+
+  @include mediaCss(1280) {
+    font-size: 16px;
+  }
+
+  @include mediaCss(480) {
+    font-size: 20px;
+  }
+}
+
+@mixin mediaCss($px) {
+  @media screen and (max-width: #{$px * 1px}) {
+    @content;
+  }
+}

@@ -19,16 +19,34 @@
       margin-bottom: 0;
     }
 
-    &__loading {
-      margin-right: 4px;
-    }
-
     &__voice {
       color: #eee;
     }
 
     &__label {
-      color: black;
+      color: #fff;
+      font-weight: bold;
+      font-size: 24px;
     }
+
+    &__info {
+      flex: 1;
+    }
+
+    &__loading {
+      margin-right: 4px;
+    }
+  }
+}
+
+.iconBox {
+  @include flexCenter;
+
+  &-icon {
+    @include flexCenter;
+    width: 40px;
+    height: 40px;
+    background-color: skyblue;
+    margin-right: 4px;
   }
 }

@@ -1,0 +1,10 @@
+.titleBox {
+  @include flexCenter;
+  padding: 15px 0;
+
+  &-label {
+    font-size: 32px;
+    font-weight: bold;
+    color: #fff;
+  }
+}

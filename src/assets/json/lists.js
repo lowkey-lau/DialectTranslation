@@ -16,8 +16,8 @@ export default [
     voice: "li ho",
   },
   {
-    label: "aaa",
-    file: new URL("@/assets/sounds/hihat.wav", import.meta.url).href,
+    label: "网络资源测试",
+    file: "https://dgfd5x26zh070.cloudfront.net/temp/long.wav",
     voice: "li ho",
   },
   {

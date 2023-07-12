@@ -1,11 +1,19 @@
 <template>
   <div class="listBox">
     <div class="listBox-item" :class="{ 'listBox-item--active': item.isPlaying }" v-for="(item, index) in filterLists" @click="playSound(index)">
-      <LoadingBar class="listBox-item__loading" :active="item.isPlaying" />
-
       <div class="listBox-item__info">
         <div class="listBox-item__voice">{{ item.voice }}</div>
         <div class="listBox-item__label">{{ item.label }}</div>
+      </div>
+      <LoadingBar class="listBox-item__loading" :active="item.isPlaying" />
+
+      <div class="iconBox">
+        <div class="iconBox-icon">
+          <el-icon color="#fff" size="32"><VideoPlay /></el-icon>
+        </div>
+        <div class="iconBox-icon" @click.stop="stopSound(index)">
+          <el-icon color="#fff" size="32"><RefreshRight /></el-icon>
+        </div>
       </div>
     </div>
   </div>
@@ -36,6 +44,9 @@ const playSound = (e) => {
     sound = audio.howl = new Howl({
       src: [audio.file],
       html5: true,
+      onload: () => {
+        console.log(e);
+      },
       onend: (e) => {
         console.log(e);
         audio.isPlaying = false;
@@ -50,6 +61,12 @@ const playSound = (e) => {
     audio.isPlaying = false;
     sound.pause();
   }
+};
+
+const stopSound = (e) => {
+  let sound = state.data[e].howl;
+  sound.stop();
+  sound.play();
 };
 
 const filterLists = computed(() => {

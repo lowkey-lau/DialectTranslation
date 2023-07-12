@@ -1,11 +1,13 @@
 <template>
   <div>
+    <Title title="汕尾话" />
     <Search @setSearchVal="setSearchVal" />
     <Lists :searchVal="state.searchVal" />
   </div>
 </template>
 
 <script setup>
+import Title from "./components/Title/index.vue";
 import Search from "./components/Search/index.vue";
 import Lists from "./components/Lists/index.vue";
 

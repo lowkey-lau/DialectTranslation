@@ -8,9 +8,9 @@
       <LoadingBar class="listBox-item__loading" :active="item.isPlaying" />
 
       <div class="iconBox">
-        <div class="iconBox-icon">
+        <!-- <div class="iconBox-icon">
           <el-icon color="#fff" size="32"><VideoPlay /></el-icon>
-        </div>
+        </div> -->
         <div class="iconBox-icon" @click.stop="stopSound(index)">
           <el-icon color="#fff" size="32"><RefreshRight /></el-icon>
         </div>
@@ -33,6 +33,29 @@ const $props = defineProps({
 const state = reactive({
   data: [],
 });
+
+const initSound = (e) => {
+  return new Promise((resolve, reject) => {
+    if (audio.howl) {
+      state.data[e] = audio.howl;
+      resolve();
+    } else {
+      state.data[e] = audio.howl = new Howl({
+        src: [audio.file],
+        html5: true,
+        onload: () => {
+          console.log(e);
+        },
+        onend: (e) => {
+          console.log(e);
+          audio.isPlaying = false;
+        },
+      });
+
+      resolve();
+    }
+  });
+};
 
 const playSound = (e) => {
   let sound;
@@ -66,6 +89,7 @@ const playSound = (e) => {
 const stopSound = (e) => {
   let sound = state.data[e].howl;
   sound.stop();
+  state.data[e].isPlaying = true;
   sound.play();
 };
 

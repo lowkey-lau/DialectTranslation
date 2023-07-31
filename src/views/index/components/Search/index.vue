@@ -1,11 +1,14 @@
 <template>
   <div class="search">
-    <el-input v-model="state.searchVal" placeholder="想搜索些啥" @input="inputSeachVal" />
+    <div class="search-input">
+      <el-input v-model="state.searchVal" size="large" placeholder="想搜索些啥" clearable :prefix-icon="Search" @input="inputSeachVal" />
+    </div>
   </div>
 </template>
 
 <script setup>
 import { reactive, watch } from "vue";
+import { Search } from "@element-plus/icons-vue";
 
 const $emits = defineEmits(["setSearchVal"]);
 

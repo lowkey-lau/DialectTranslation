@@ -20,12 +20,16 @@ app.use(ElementPlus);
 app.use(vConsole);
 
 for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
-  //解决Menu标签报错
-  if (key != "Menu") {
-    app.component(key, component);
-  } else {
-    app.component(key + "Icon", component);
-  }
+  app.component(key, component);
 }
+
+// for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
+//   //解决Menu标签报错
+//   if (key != "Menu") {
+//     app.component(key, component);
+//   } else {
+//     app.component(key + "Icon", component);
+//   }
+// }
 
 app.mount("#app");

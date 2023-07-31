@@ -2,18 +2,17 @@ export default [
   {
     label: "你好",
     file: new URL("@/assets/sounds/hihat.wav", import.meta.url).href,
-    voice: "li ho",
-    voice: "li ho",
+    voice: "lì hò",
   },
   {
     label: "吃饭",
     file: new URL("@/assets/sounds/boom.wav", import.meta.url).href,
-    voice: "li ho",
+    voice: "jia bwei",
   },
   {
-    label: "long",
+    label: "这里",
     file: new URL("@/assets/sounds/long.wav", import.meta.url).href,
-    voice: "li ho",
+    voice: "ji",
   },
   {
     label: "网络资源测试",
@@ -21,14 +20,14 @@ export default [
     voice: "li ho",
   },
   {
-    label: "bbb",
+    label: "爷爷",
     file: new URL("@/assets/sounds/hihat.wav", import.meta.url).href,
-    voice: "li ho",
+    voice: "gong gong",
   },
   {
-    label: "ccc",
+    label: "奶奶",
     file: new URL("@/assets/sounds/hihat.wav", import.meta.url).href,
-    voice: "li ho",
+    voice: "ma ma",
   },
   {
     label: "ddd",

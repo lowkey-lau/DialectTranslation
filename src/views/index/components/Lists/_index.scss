@@ -2,6 +2,7 @@
   padding: 15px;
 
   &-item {
+    @include initTransition(0.4);
     @include flexLeft;
     border: 1px solid grey;
     padding: 15px;
@@ -46,7 +47,7 @@
     @include flexCenter;
     width: 40px;
     height: 40px;
-    background-color: skyblue;
+    // background-color: skyblue;
     margin-right: 4px;
   }
 }

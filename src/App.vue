@@ -14,5 +14,6 @@
 }
 .pages {
   background-color: $color-bg;
+  min-height: 100vh;
 }
 </style>
